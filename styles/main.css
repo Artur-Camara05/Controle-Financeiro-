@@ -81,6 +81,18 @@ body {
     font-weight: 600;
 }
 
+.balance-item.income .value {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.balance-item.expense .value {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
 .filters {
     display: flex;
     gap: var(--spacing-xs);
@@ -109,6 +121,16 @@ body {
     border-color: var(--primary-dark);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
+}
+
+.filter-btn[data-filter="income"].active {
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+    border-color: var(--success-dark);
+}
+
+.filter-btn[data-filter="expense"].active {
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
+    border-color: var(--danger-dark);
 }
 
 .transactions-container {
@@ -143,8 +165,21 @@ body {
     justify-content: space-between;
     align-items: center;
     animation: slideIn 0.3s ease;
-    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     transition: all 0.2s;
+}
+
+.transaction-item.income {
+    border-left-color: var(--success);
+    background: linear-gradient(to right, rgba(5, 150, 105, 0.05) 0%, var(--surface) 40%);
+}
+
+.transaction-item.expense {
+    border-left-color: var(--danger);
+    background: linear-gradient(to right, rgba(220, 38, 38, 0.05) 0%, var(--surface) 40%);
 }
 
 .transaction-item:active {
@@ -171,6 +206,9 @@ body {
     font-weight: 500;
     margin-bottom: 4px;
     color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .transaction-date {
@@ -191,10 +229,18 @@ body {
 
 .transaction-value.income {
     color: var(--success-dark);
+    background: var(--success-light);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
 }
 
 .transaction-value.expense {
     color: var(--danger-dark);
+    background: var(--danger-light);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
 }
 
 .delete-btn {

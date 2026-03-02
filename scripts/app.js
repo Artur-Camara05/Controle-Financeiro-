@@ -137,9 +137,11 @@ class FinanceApp {
         }
 
         this.transactionsList.innerHTML = filtered.map(transaction => `
-            <div class="transaction-item">
+            <div class="transaction-item ${transaction.type}">
                 <div class="transaction-info">
-                    <div class="transaction-description">${transaction.description}</div>
+                    <div class="transaction-description">
+                        ${transaction.type === 'income' ? '💚' : '❤️'} ${transaction.description}
+                    </div>
                     <div class="transaction-date">${this.formatDate(transaction.date)}</div>
                 </div>
                 <div class="transaction-amount">
